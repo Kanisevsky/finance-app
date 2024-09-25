@@ -1,5 +1,6 @@
 import { SignIn, ClerkLoaded, ClerkLoading } from '@clerk/nextjs';
 import { Loader2 } from 'lucide-react';
+import Image from 'next/image';
 
 const SignInPage = () => {
   return (
@@ -20,7 +21,9 @@ const SignInPage = () => {
           </ClerkLoading>
         </div>
       </div>
-      <div className="h-full bg-blue-600 hidden lg:flex items-center justify-center"></div>
+      <div className="h-full bg-blue-600 hidden lg:flex items-center justify-center">
+        <Image src="./logo.svg" alt="logo" width={85} height={45} />
+      </div>
     </div>
   );
 };
