@@ -20,6 +20,7 @@ const SignInPage = () => {
           </ClerkLoading>
         </div>
       </div>
+      <div className="h-full bg-blue-600 hidden lg:flex items-center justify-center"></div>
     </div>
   );
 };
