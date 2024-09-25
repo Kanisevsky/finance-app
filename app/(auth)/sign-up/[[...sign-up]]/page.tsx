@@ -2,7 +2,7 @@ import { SignUp } from '@clerk/nextjs';
 
 const SignUpPage = () => {
   return (
-    <div>
+    <div className="h-screen flex justify-center items-center">
       <SignUp />
     </div>
   );
