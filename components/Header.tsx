@@ -2,6 +2,7 @@ import { UserButton, ClerkLoading, ClerkLoaded } from '@clerk/nextjs';
 import HeaderLogo from './HeaderLogo';
 import Navigation from './Navigation';
 import { Loader2 } from 'lucide-react';
+import WelcomeMsg from './WelcomeMsg';
 
 const Header = () => {
   return (
@@ -19,6 +20,7 @@ const Header = () => {
             <Loader2 className="size-6 animate-spin text-slate-400 " />
           </ClerkLoading>
         </div>
+        <WelcomeMsg />
       </div>
     </header>
   );
