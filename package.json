@@ -7,8 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "db:generate": "drizzle-kit generate:pg --schema db/schema.ts --out ./drizzle",
-    "db:migrate": "bun ./script/migrate.ts",
+    "db:generate": "drizzle-kit generate --dialect=postgresql --schema=db/schema.ts --out=./drizzle",
+    "db:migrate": "bun ./scripts/migrate.ts",
     "db:studio": "drizzle-kit studio"
   },
   "dependencies": {
@@ -38,7 +38,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "dotenv": "^16.4.5",
-    "drizzle-kit": "0.20.17",
+    "drizzle-kit": "^0.24.2",
     "eslint": "^8",
     "eslint-config-next": "14.2.13",
     "postcss": "^8",

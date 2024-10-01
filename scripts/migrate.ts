@@ -1,7 +1,7 @@
-import { neon } from '@neondatabase/serverless';
-import { config } from 'dotenv';
 import { drizzle } from 'drizzle-orm/neon-http';
+import { neon } from '@neondatabase/serverless';
 import { migrate } from 'drizzle-orm/neon-http/migrator';
+import { config } from 'dotenv';
 
 config({ path: '.env.local' });
 
@@ -13,7 +13,7 @@ const main = async () => {
     await migrate(db, { migrationsFolder: 'drizzle' });
   } catch (error) {
     console.log('Error during migration', error);
-    process.exit();
+    process.exit(1);
   }
 };
 
