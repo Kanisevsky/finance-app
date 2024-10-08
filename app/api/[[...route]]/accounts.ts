@@ -1,6 +1,7 @@
 import { db } from '@/db/drizzle';
 import { Hono } from 'hono';
 import { zValidator } from '@hono/zod-validator';
+import { createId } from '@paralleldrive/cuid2';
 import { eq } from 'drizzle-orm';
 import { accounts, insertAccountSchema } from '@/db/schema';
 import { clerkMiddleware, getAuth } from '@hono/clerk-auth';
@@ -32,10 +33,11 @@ const app = new Hono()
         return c.json({ error: 'Unauthorised' }, 401);
       }
 
-      const data = await db
+      const [data] = await db
         .insert(accounts)
-        .values({ id: 'test', userId: auth.userId, ...values });
-      return c.json({});
+        .values({ id: createId(), userId: auth.userId, ...values })
+        .returning();
+      return c.json({ data });
     }
   );
 
