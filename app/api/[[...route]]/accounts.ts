@@ -24,12 +24,17 @@ const app = new Hono()
   .post(
     '/',
     clerkMiddleware(),
-    zValidator('json', insertAccountSchema),
+    zValidator('json', insertAccountSchema.pick({ name: true })),
     async (c) => {
       const auth = getAuth(c);
+      const values = c.req.valid('json');
       if (!auth?.userId) {
         return c.json({ error: 'Unauthorised' }, 401);
       }
+
+      const data = await db
+        .insert(accounts)
+        .values({ id: 'test', userId: auth.userId, ...values });
       return c.json({});
     }
   );
