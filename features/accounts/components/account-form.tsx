@@ -37,7 +37,7 @@ export const AccountForm = ({
     defaultValues: defaultValues,
   });
   const handleSubmit = (values: FormValues) => {
-    console.log({ values });
+    onSubmit(values);
   };
   const handleDelete = () => {
     onDelete?.();
